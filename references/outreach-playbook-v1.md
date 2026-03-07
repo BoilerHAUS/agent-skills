@@ -36,13 +36,19 @@ A prospect is qualified if at least 3 are true:
 - day 4-5: follow-up to non-responders (+48h)
 - day 6-7: book discovery calls and run qualification
 
+### minimum personalization rule
+Before sending any message, include at least one specific reference to the prospect’s context:
+- a concrete pain signal they posted
+- a repo/system artifact they own
+- a recent incident or reliability complaint
+
 ## outreach message variants
 
 ### variant A (short)
-"hey {name} — saw your note on {pain signal}. we run a fixed-scope reliability audit + fix sprint for teams with recurring ops friction. if useful, i can send a 3-point plan specific to your stack and timing."
+"hey {name} — saw your note on {pain signal}. we run a fixed-scope reliability audit + fix sprint for teams with recurring ops friction. want me to send the 3-point plan for your stack?"
 
 ### variant B (long)
-"hi {name}, noticed {specific incident/pain}. we help small teams reduce repeat reliability issues with a fixed-scope workflow: quick audit, prioritized fixes, and rollback-safe PR delivery. if this is relevant, i can share a concrete 72h plan tailored to your repo/process."
+"hi {name}, noticed {specific incident/pain}. we help small teams reduce repeat reliability issues with a fixed-scope workflow: quick audit, prioritized fixes, and rollback-safe PR delivery. want me to send a concrete 72h plan tailored to your repo/process?"
 
 ## first 20-prospect tracker format
 Use `references/first-20-prospect-tracker.csv` for execution.
@@ -56,9 +62,20 @@ Required fields:
 - pain_signal
 - message_variant
 - status
+- response_timestamp
+- outcome_reason
 - next_action_date
 - estimated_deal_usd
 - notes
+
+Status enum (use only these values):
+- queued
+- sent
+- followup_sent
+- replied
+- call_booked
+- won
+- lost
 
 ## follow-up loop + conversion logging
 1. send initial outreach (A/B split)
