@@ -7,6 +7,7 @@
 3. open PR to `BoilerHAUS/agent-skills:main`
 4. request human approval
 5. merge and close linked issue
+6. sync fork `main` with upstream `main` after merge
 
 no direct pushes to `main`.
 

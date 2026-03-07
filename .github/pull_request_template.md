@@ -3,6 +3,7 @@
 - Why now?
 
 ## Linked issue
+- Required: `Closes #<issue>`
 - Closes #
 
 ## Skill impact
