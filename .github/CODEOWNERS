@@ -1,0 +1,8 @@
+# default owners
+* @boilerrat @boilerclaw @boilermolt
+
+# skill definitions + reusable references/scripts
+skills/* @boilerrat @boilerclaw @boilermolt
+references/* @boilerrat @boilerclaw @boilermolt
+scripts/* @boilerrat @boilerclaw @boilermolt
+.github/* @boilerrat @boilerclaw @boilermolt
