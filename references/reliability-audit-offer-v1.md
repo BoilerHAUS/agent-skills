@@ -22,9 +22,9 @@ Define a zero-budget-first productized service that can convert to first paid pi
 - lightweight response SLA and handoff notes
 
 ## launch pricing (usd)
-- lite audit: 149-249
-- audit + fix sprint: 499-899
-- retainer pilot: 750-1500 / month
+- lite audit: 199
+- audit + fix sprint: 699
+- retainer pilot: 990 / month
 
 ## risk guardrails
 - no destructive production actions without explicit written approval
@@ -32,6 +32,24 @@ Define a zero-budget-first productized service that can convert to first paid pi
 - all changes follow issue -> fork branch -> PR
 - each PR must include summary, risk impact, validation, rollback
 - implementation scope capped per sprint to prevent hidden support debt
+
+## out of scope
+- no smart contract audits
+- no legal, tax, or compliance advice
+- no custody or account operation on behalf of client
+- no guaranteed pnl or business outcome commitments
+
+## next step to book
+Send the following intake details:
+- repo/system links in scope
+- current reliability pain (top 1-3 incidents)
+- access constraints and maintenance windows
+- desired start date + timezone
+
+Expected turnaround:
+- intake review within 24h
+- kickoff within 48h for lite audit
+- kickoff within 72h for audit + fix sprint
 
 ## validation checklist
 - run one internal mock-customer dry run
