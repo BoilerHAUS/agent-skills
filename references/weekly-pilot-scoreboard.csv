@@ -1,2 +1,2 @@
-week_start,week_end,owner,outreaches_sent,replies,positive_replies,discovery_calls_booked,pilots_offered,pilots_closed_paid,revenue_usd,top_blocker,next_iteration_plan
-,,,,,,,,,,,
+week_start,week_end,owner,outreaches_sent,replies,positive_replies,discovery_calls_booked,pilots_offered,pilots_closed_paid,revenue_usd,reply_rate_pct,positive_reply_rate_pct,call_book_rate_pct,pilot_close_rate_pct,discussion_update_url,tracker_snapshot_ref,top_blocker,next_iteration_plan
+,,,,,,,,,,,,,,,,,
