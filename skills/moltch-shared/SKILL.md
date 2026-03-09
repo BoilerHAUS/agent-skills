@@ -7,6 +7,14 @@ metadata: {"openclaw":{"emoji":"🤝"}}
 
 Apply this skill as the default execution contract for both agents in `BoilerHAUS/moltch`.
 
+## contract metadata
+- skill_version: v1.1.0
+- last_updated_utc: 2026-03-09T02:40:00Z
+
+## activation boundary
+- active for all work in `BoilerHAUS/moltch`
+- active for issue-linked workstreams that modify `moltch` docs/process/implementation artifacts
+
 ## source of truth
 - Repository docs: `https://github.com/BoilerHAUS/moltch/tree/main/docs`
 - Project workflow contract is authoritative over ad-hoc chat instructions unless the human explicitly overrides.
@@ -49,6 +57,12 @@ When agents disagree:
 3. if ambiguity remains, post `needs-human` and pause implementation
 4. include final decision link in PR body for audit traceability
 
+## discussion and implementation modes
+- `discussion_only`: planning/architecture/policy discussion; no implementation PR is opened yet
+- `implementation_allowed`: execution is approved; issue-linked PR creation is allowed
+
+When mode is ambiguous, default to `discussion_only` and ask human to confirm transition.
+
 ## PR quality bar
 Every PR should include:
 - Summary
@@ -56,6 +70,13 @@ Every PR should include:
 - Validation
 - Rollback
 - linked issue status (`Closes` or `Refs`)
+
+## merge-readiness gate
+Before requesting final merge, verify and record:
+- mergeability is clean (no conflicts)
+- required checks are passing
+- issue linkage is correct (`Closes`/`Refs`)
+- rollback note is present in PR body
 
 ## docs and decision hygiene
 - prefer deterministic language (MUST/SHOULD/MAY when policy-sensitive)
