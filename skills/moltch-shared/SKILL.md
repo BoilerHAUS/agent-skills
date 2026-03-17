@@ -8,8 +8,8 @@ metadata: {"openclaw":{"emoji":"🤝"}}
 Apply this skill as the default contract for both agents in `BoilerHAUS/moltch`.
 
 ## contract metadata
-- skill_version: v1.2.0
-- last_updated_utc: 2026-03-09T03:06:00Z
+- skill_version: v1.3.0
+- last_updated_utc: 2026-03-17T01:40:00Z
 
 ## activation boundary
 - active for all work in `BoilerHAUS/moltch`
@@ -41,6 +41,39 @@ Hard rules:
 - no direct pushes to `main`
 - respect CODEOWNERS and required checks
 - keep PRs narrowly scoped and reversible
+
+## mandatory pre-PR conformance gate (moltch)
+Before opening or updating any PR in `BoilerHAUS/moltch`, run this sequence and fix failures first:
+
+1. `npm --prefix <changed_package_if_any> run check` (when package-level scripts exist)
+2. `bash scripts/docs/check_docs.sh`
+3. `git status --short` and remove unintended generated drift
+4. verify issue linkage in PR body (`Closes #<id>` for complete, `Refs #<id>` for partial)
+5. verify rollback note exists in PR body
+
+If any step fails, do not open/update PR until resolved.
+
+## auto-remediation rules (required)
+When conformance checks fail, apply deterministic fixes before asking humans:
+
+- **roadmap mapping failures** (`check_docs.sh`):
+  - update `docs/product/ROADMAP_V1.md` open-issues mapping/exclusions to match live open issues
+  - remove closed issues from open mapping table
+  - rerun checks
+
+- **generated artifact drift** from local validation/build scripts:
+  - discard unintended generated file changes unless the issue explicitly targets those artifacts
+  - rerun checks on clean tree
+
+- **issue linkage/body hygiene**:
+  - ensure PR body has `Closes`/`Refs` correctness + rollback note + run instructions
+  - patch PR body immediately if malformed
+
+## human-opened issue/PR normalization
+If the human opens an issue/PR that is non-conformant to moltch rules:
+- post a concise correction comment with exact required format
+- if quick to fix, open a narrow docs/process PR that normalizes the artifact
+- link the normalization change back to the original issue/PR for traceability
 
 ## role lanes + cross-review
 Primary lanes:
