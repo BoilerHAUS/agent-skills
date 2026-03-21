@@ -121,6 +121,50 @@ For active execution issues/PRs, post concise in-thread updates:
 - next
 - blocked
 
+## priority taxonomy (moltch)
+Use this shared priority scale for issue creation, triage, roadmap updates, and review sequencing in `BoilerHAUS/moltch`:
+
+- `priority:p0` — immediate blocker / merge-critical / active outage
+  - interrupts normal queue
+  - expected response: now
+  - requires explicit in-thread blocker summary
+- `priority:p1` — current hands-on queue; do next
+  - the active execution lane once p0 work is absent
+  - use for the next issue/PR an agent should pick up
+- `priority:p2` — ready after current slot; near-term committed
+  - prepared work that should follow p1 without major reprioritization
+- `priority:p3` — important queued work; not immediate
+  - legitimate planned work, but not in the next execution slot
+- `priority:p4` — planned later; strategic but not near-term
+  - known future work that should stay visible without competing with the near-term queue
+- `priority:p5` — parked / icebox / revisit later
+  - not abandoned, but intentionally out of the active queue
+
+### behavioral rules
+- every open `moltch` issue should carry exactly one granular `priority:p*` label once the taxonomy is adopted
+- when priorities conflict, agents should sequence work by the highest-priority issue first, then by dependency/mergeability
+- `priority:p1` and `priority:p2` items should generally have a visible next execution step or linked PR plan
+- `priority:p4` and `priority:p5` items should not be pulled into active execution without an explicit reprioritization signal
+
+### transition guidance for legacy labels
+During migration, treat legacy labels as follows:
+- `priority:now` -> usually `priority:p0` or `priority:p1`
+- `priority:next` -> usually `priority:p2`
+- `priority:later` -> usually `priority:p4` or `priority:p5`
+
+Do not rely on the legacy label alone when opening new issues. Prefer the granular `priority:p*` scale.
+
+### when to explain a priority change in-thread
+Post a brief in-thread explanation when:
+- an issue is promoted into `priority:p0` or `priority:p1`
+- an issue is demoted from `priority:p1`/`priority:p2` to `priority:p4`/`priority:p5`
+- reprioritization changes the expected execution order in a way a human reviewer would otherwise miss
+
+Keep the explanation short and operational:
+- what changed
+- why priority changed
+- what this displaces or unblocks
+
 ## merge-readiness gate
 Before final merge request, verify and record:
 - mergeability is clean
